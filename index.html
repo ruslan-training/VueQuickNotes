@@ -5,13 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Zametki</title>
+    <title>QuickNontes</title>
 </head>
 <body>
-
+    <section class="notes" id="app">
+        <div class="notes__wrapper">
+            <h1 class="notes__title">Быстрые заметки v1.0</h1>
+            <div class="notes__input" >
+                <input type="text" placeholder="Введите заметку" v-model="inputValue" >
+            </div>
+            <button class="notes__add-button" @click="addNote()">Добавить заметку</button>
+            <ul class="notes__list">
+                <li class="notes__item" v-for="(note, i) in notes">
+                    {{ note }}
+                    <button class="notes__btn" @click="removeNote(i)">Удалить</button>
+                </li>
+            </ul>
+            <div class="notes__total">Всего заметок: {{ notes.length }}</div>
+        </div>
+    </section>
     
 
     <script src="https://unpkg.com/vue@next"></script>   
-    <script src="zametki/app.js"></script> 
+    <script src="app.js"></script> 
 </body>
 </html>
